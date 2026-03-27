@@ -39,17 +39,11 @@ public class Player implements Scorable {
         correctCount++;
         combo++;
 
-        if (combo > maxCombo) {
-            maxCombo = combo;
-        }
+        if (combo > maxCombo) maxCombo = combo;
 
-        if (combo >= 5) {
-            score += 3;
-        } else if (combo >= 3) {
-            score += 2;
-        } else {
-            addScore();
-        }
+        if (combo >= 5) score += 3;
+        else if (combo >= 3) score += 2;
+        else score += 1;
     }
 
     public void addWrong() {

@@ -29,33 +29,27 @@ public class QuizGame {
         Random rand = new Random();
         int type = rand.nextInt(4);
 
-        if (type == 0) {
-            return new AddQuestion(difficulty);
-        } else if (type == 1) {
-            return new SubQuestion(difficulty);
-        } else if (type == 2) {
-            return new MulQuestion(difficulty);
-        } else {
-            return new DivQuestion(difficulty);
+        switch (type) {
+            case 0: return new AddQuestion(difficulty);
+            case 1: return new SubQuestion(difficulty);
+            case 2: return new MulQuestion(difficulty);
+            default: return new DivQuestion(difficulty);
         }
     }
 
     public boolean submitAnswer(int answer) {
         boolean correct = currentQuestion.checkAnswer(answer);
 
-        if (correct) {
-            player.addCorrect();
-        } else {
-            player.addWrong();
+        if (correct) player.addCorrect();
+        else player.addWrong();
+
+        if (currentQuestionNumber >= totalQuestions) {
+            endTime = System.currentTimeMillis();
         }
 
         currentQuestionNumber++;
 
-        if (!isGameOver()) {
-            currentQuestion = generateRandomQuestion();
-        } else {
-            endTime = System.currentTimeMillis();
-        }
+        if (!isGameOver()) currentQuestion = generateRandomQuestion();
 
         return correct;
     }
@@ -91,7 +85,6 @@ public class QuizGame {
 
     public String getResultLevel() {
         double percent = (player.getCorrectCount() * 100.0) / totalQuestions;
-
         if (percent >= 90) return "Excellent";
         else if (percent >= 75) return "Very Good";
         else if (percent >= 60) return "Good";

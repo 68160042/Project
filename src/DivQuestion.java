@@ -10,27 +10,28 @@ public class DivQuestion extends Question {
 
     private void generateDivisionQuestion() {
         Random rand = new Random();
-
         int answer;
         int divisor;
 
         switch (difficulty) {
             case EASY:
-                answer = rand.nextInt(10) + 1;
-                divisor = rand.nextInt(10) + 1;
+                answer = rand.nextInt(10) + 1;      // 1-10
+                divisor = rand.nextInt(10) + 1;     // 1-10
                 break;
             case MEDIUM:
-                answer = rand.nextInt(15) + 1;
-                divisor = rand.nextInt(12) + 1;
+                answer = rand.nextInt(15) + 1;      // 1-15
+                divisor = rand.nextInt(12) + 1;     // 1-12
                 break;
             case HARD:
-                answer = rand.nextInt(20) + 1;
-                divisor = rand.nextInt(15) + 1;
+                answer = rand.nextInt(20) + 1;      // 1-20
+                divisor = rand.nextInt(15) + 1;     // 1-15
                 break;
             default:
                 answer = 1;
                 divisor = 1;
         }
+
+        if (divisor == 0) divisor = 1;
 
         num2 = divisor;
         correctAnswer = answer;

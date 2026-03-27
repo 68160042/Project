@@ -228,11 +228,9 @@ public class GameFrame extends JFrame {
             boolean correct = game.submitAnswer(answer);
 
             if (correct) {
-                SoundPlayer.playCorrectSound();
                 flashQuestionBox(new Color(50, 90, 60), GOLD);
                 showStatus("Correct! Combo x" + game.getPlayer().getCombo(), GREEN);
             } else {
-                SoundPlayer.playWrongSound();
                 flashQuestionBox(new Color(90, 50, 50), new Color(230, 180, 180));
                 showStatus("Wrong! Correct = " + correctAnswer, RED);
             }
