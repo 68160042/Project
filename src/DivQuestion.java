@@ -15,16 +15,16 @@ public class DivQuestion extends Question {
 
         switch (difficulty) {
             case EASY:
-                answer = rand.nextInt(10) + 1;      // 1-10
-                divisor = rand.nextInt(10) + 1;     // 1-10
+                answer = rand.nextInt(10) + 1;
+                divisor = rand.nextInt(10) + 1;
                 break;
             case MEDIUM:
-                answer = rand.nextInt(15) + 1;      // 1-15
-                divisor = rand.nextInt(12) + 1;     // 1-12
+                answer = rand.nextInt(15) + 1;
+                divisor = rand.nextInt(12) + 1;
                 break;
             case HARD:
-                answer = rand.nextInt(20) + 1;      // 1-20
-                divisor = rand.nextInt(15) + 1;     // 1-15
+                answer = rand.nextInt(20) + 1;
+                divisor = rand.nextInt(15) + 1;
                 break;
             default:
                 answer = 1;

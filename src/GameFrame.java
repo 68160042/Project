@@ -255,27 +255,23 @@ public class GameFrame extends JFrame {
     }
 
     private void restartGameAction(ActionEvent e) {
-        int confirm = JOptionPane.showConfirmDialog(
-                this,
-                "Do you want to restart the game?",
-                "Restart Confirmation",
-                JOptionPane.YES_NO_OPTION
+        boolean confirm = showStyledConfirmDialog(
+                "RESTART GAME",
+                "Do you want to restart the game?"
         );
 
-        if (confirm == JOptionPane.YES_OPTION) {
+        if (confirm) {
             resetGameUI();
         }
     }
 
     private void backToMenuAction(ActionEvent e) {
-        int confirm = JOptionPane.showConfirmDialog(
-                this,
-                "Do you want to go back to Main Menu?",
-                "Back to Menu",
-                JOptionPane.YES_NO_OPTION
+        boolean confirm = showStyledConfirmDialog(
+                "BACK TO MENU",
+                "Do you want to go back to Main Menu?"
         );
 
-        if (confirm == JOptionPane.YES_OPTION) {
+        if (confirm) {
             if (timer != null) timer.stop();
             new StartMenu();
             dispose();
@@ -368,6 +364,86 @@ public class GameFrame extends JFrame {
         difficultyBox.setEnabled(true);
 
         nameField.requestFocusInWindow();
+    }
+
+    private boolean showStyledConfirmDialog(String titleText, String messageText) {
+        final boolean[] result = {false};
+
+        JDialog dialog = new JDialog(this, titleText, true);
+        dialog.setSize(500, 240);
+        dialog.setLocationRelativeTo(this);
+        dialog.setResizable(false);
+        dialog.setLayout(new BorderLayout());
+        dialog.getContentPane().setBackground(BG);
+
+        JPanel mainPanel = new JPanel(new BorderLayout(12, 12));
+        mainPanel.setBackground(BG);
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        JPanel headerPanel = new JPanel();
+        headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.Y_AXIS));
+        headerPanel.setBackground(BG);
+
+        JLabel titleLabel = new JLabel(titleText, SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 26));
+        titleLabel.setForeground(TITLE);
+        titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel subLabel = new JLabel("Confirmation Required", SwingConstants.CENTER);
+        subLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+        subLabel.setForeground(SUBTEXT);
+        subLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        headerPanel.add(titleLabel);
+        headerPanel.add(Box.createVerticalStrut(6));
+        headerPanel.add(subLabel);
+
+        JPanel messagePanel = new JPanel(new GridBagLayout());
+        messagePanel.setBackground(PANEL);
+        messagePanel.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(BORDER, 2),
+                BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
+
+        JLabel messageLabel = new JLabel(messageText, SwingConstants.CENTER);
+        messageLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        messageLabel.setForeground(TEXT);
+
+        messagePanel.add(messageLabel);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
+        buttonPanel.setBackground(BG);
+
+        JButton yesButton = new JButton("YES");
+        JButton noButton = new JButton("NO");
+
+        styleGameButton(yesButton, GREEN);
+        styleGameButton(noButton, RED);
+
+        yesButton.setPreferredSize(new Dimension(140, 45));
+        noButton.setPreferredSize(new Dimension(140, 45));
+
+        yesButton.addActionListener(e -> {
+            result[0] = true;
+            dialog.dispose();
+        });
+
+        noButton.addActionListener(e -> {
+            result[0] = false;
+            dialog.dispose();
+        });
+
+        buttonPanel.add(yesButton);
+        buttonPanel.add(noButton);
+
+        mainPanel.add(headerPanel, BorderLayout.NORTH);
+        mainPanel.add(messagePanel, BorderLayout.CENTER);
+        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        dialog.add(mainPanel);
+        dialog.setVisible(true);
+
+        return result[0];
     }
 
     private void showFinalResultDialog(String playerName, String difficulty,
