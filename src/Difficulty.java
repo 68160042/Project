@@ -1,3 +1,6 @@
+//ใช้กำหนดความยากของเกม
 public enum Difficulty {
-    EASY, MEDIUM, HARD
+    EASY, //ง่าย
+    MEDIUM, //ปานกลาง
+    HARD //ยาก
 }

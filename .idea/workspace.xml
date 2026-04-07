@@ -7,9 +7,19 @@
     <list default="true" id="38c82095-c892-4dd7-b6dc-16c40a43be16" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Difficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Difficulty.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DivQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DivQuestion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeaderboardEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeaderboardEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeaderboardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeaderboardManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MulQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MulQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/QuizGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuizGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scorable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scorable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SubQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SubQuestion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +82,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>2</line>
+          <line>3</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Difficulty.java</url>
+          <line>1</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

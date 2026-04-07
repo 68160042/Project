@@ -4,8 +4,10 @@ import java.util.List;
 
 public class StartMenu extends JFrame {
 
+    // เลือกจำนวนข้อของเกม
     private JComboBox<String> questionCountBox;
 
+    // ชุดสีของ UI
     private final Color BG = new Color(20, 24, 30);
     private final Color PANEL = new Color(34, 40, 49);
     private final Color PANEL2 = new Color(45, 53, 63);
@@ -20,6 +22,7 @@ public class StartMenu extends JFrame {
     private final Color GREEN = new Color(105, 180, 120);
     private final Color RED = new Color(195, 105, 105);
 
+    // Constructor หน้าเมนูหลัก
     public StartMenu() {
         setTitle("Math Quiz Game - Main Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,14 +83,17 @@ public class StartMenu extends JFrame {
 
         add(mainPanel);
 
+        // ปุ่มเริ่มเกม
         playButton.addActionListener(e -> {
             int totalQuestions = Integer.parseInt(questionCountBox.getSelectedItem().toString());
             new GameFrame(totalQuestions);
             dispose();
         });
 
+        // ปุ่มดูอันดับ
         leaderboardButton.addActionListener(e -> showLeaderboardDialog());
 
+        // ปุ่มออกจากเกม
         exitButton.addActionListener(e -> {
             boolean confirm = showStyledConfirmDialog(
                     "EXIT GAME",
@@ -102,6 +108,7 @@ public class StartMenu extends JFrame {
         setVisible(true);
     }
 
+    // แสดงหน้าต่าง Leaderboard
     private void showLeaderboardDialog() {
         List<LeaderboardEntry> entries = LeaderboardManager.getLeaderboard();
 
@@ -182,6 +189,7 @@ public class StartMenu extends JFrame {
         dialog.setVisible(true);
     }
 
+    // สร้างแถวข้อมูลอันดับ
     private JPanel createLeaderboardRow(int rank, LeaderboardEntry entry) {
         JPanel rowPanel = new JPanel(new BorderLayout(15, 15));
         rowPanel.setBackground(PANEL);
@@ -222,6 +230,7 @@ public class StartMenu extends JFrame {
         return rowPanel;
     }
 
+    // กล่องยืนยัน
     private boolean showStyledConfirmDialog(String titleText, String messageText) {
         final boolean[] result = {false};
 
@@ -302,6 +311,7 @@ public class StartMenu extends JFrame {
         return result[0];
     }
 
+    // ตกแต่งปุ่ม
     private void styleButton(JButton button, Color bgColor, Color textColor) {
         button.setFont(new Font("Arial", Font.BOLD, 24));
         button.setBackground(bgColor);
